@@ -1,0 +1,46 @@
+header {
+    background: linear-gradient(45deg, orange 30%, red);
+    height: 10rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.es-header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.es-text-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+.roboto-italic {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.overlay {
+    min-height: 100%;
+    height: 100%;
+    min-width: 100%;
+    background: rgba(0, 0, 0, 0.50);
+}
+
+/* Мобильная версия */
+@media screen and (max-width: 600px) {
+    header {
+        height: 60rem;
+    }
+}
+
+
+
+
