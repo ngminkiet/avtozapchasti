@@ -1,18 +1,19 @@
 header {
-    background: linear-gradient(45deg, orange 30%, red);
-    height: 10rem;
+    background: linear-gradient(45deg, purple 30%, red);
+    height: 90vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.es-header-title {
+.nk-header-title {
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.es-text-header {
+.nk-text-header {
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -42,5 +43,18 @@ header {
 }
 
 
+.nk-interesting {
+    background-color: antiquewhite;
+}
 
+.nk-interesting-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.nk-svg-icon {
+    width: 2rem;
+    height: 2rem;
+    fill: black;
+}
