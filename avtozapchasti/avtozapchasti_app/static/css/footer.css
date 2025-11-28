@@ -1,0 +1,33 @@
+footer {
+  background-color: black;
+/*  position: sticky;*/
+/*  bottom: 0;*/
+  width: 100%;
+}
+
+.footer-info {
+  color: white;
+  font-size: 16pt;
+  text-align: center;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.icon {
+  width: 10%;
+  height: 10%;
+  fill: white;
+  margin: 6%;
+}
+
+#telegram:hover {
+  fill: #229ED9;
+}
+
+#vk:hover {
+  fill: #0077FF;
+}

@@ -1,0 +1,25 @@
+#interesting {
+  background-color: #FFFFF0;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  text-align: center;
+}
+
+.interesting {
+  margin: 4%;
+}
+
+.title {
+  width: 55%;
+}
+
+.title-text {
+  margin-bottom: 4%;
+}
+
+.interesting-icon {
+  width: 25%;
+  height: 25%;
+  fill: black;
+  margin: 6%;
+}

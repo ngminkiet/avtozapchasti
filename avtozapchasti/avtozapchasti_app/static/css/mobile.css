@@ -1,0 +1,7 @@
+@media screen and (max-width: 600px) {
+
+    .description {
+        font-size: 16pt;
+        width: 60%;
+      }
+}
