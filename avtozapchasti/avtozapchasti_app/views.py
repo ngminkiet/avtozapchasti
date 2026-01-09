@@ -1,10 +1,15 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import login
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 
 def index(request):
-    return render(request, 'index.html')
+    try:
+        context = { 'first_name' : request.user.first_name }
+        return render(request, 'index.html', context)         
+    except AttributeError as e:
+        return render(request, 'index.html')
+
 
 def auf(request):
     if request.method == 'POST':
@@ -23,7 +28,7 @@ def reg(request):
         password = request.POST.get('password')
         username = request.POST.get('username')
         first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last-name')
+        last_name = request.POST.get('last_name')
 
         # Создаем пользователя
         user = User.objects.create_user(username, email, password)
@@ -31,7 +36,7 @@ def reg(request):
         user.last_name = last_name
         user.save()
         login(request, user)
-
+        return JsonResponse({'status' : 'success'})
     return render(request, 'reg.html')
     
 
