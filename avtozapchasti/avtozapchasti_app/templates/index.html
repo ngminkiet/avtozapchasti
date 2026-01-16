@@ -45,13 +45,20 @@
           <a class="nav-link" href="#">Город</a>
         </li>
         </li>
-        <li class="nav-item">
-            {% if first_name %}
-            <a class="nav-link" href="">{{ first_name }}</a>
-            {% else %}
-            <a class="nav-link" href={% url 'auf' %}>Вход / Регистрация</a>
-            {% endif %}
+        {% if first_name %}
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            {{ first_name }}
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href={% url 'logout' %}>Выйти</a></li>
+        </ul>
         </li>
+        {% else %}
+        <li class="nav-item">
+        <a class="nav-link" href={% url 'auf' %}>Вход / Регистрация</a>
+        </li>
+        {% endif %}
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
