@@ -1,0 +1,28 @@
+.reg {
+    width: 30%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    height: 70vh;
+    
+}
+
+#reg-button {
+    margin-top: 1rem;
+    
+}
+
+main {
+    margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 600px) {
+    .reg {
+        margin-top: 4rem;
+        width: 80%;
+        justify-content: center;
+    }
+
+    main {
+        margin-bottom: 2rem;
+    }
+}
