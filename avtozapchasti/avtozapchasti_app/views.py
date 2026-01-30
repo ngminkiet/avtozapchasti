@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.http import JsonResponse
 from django.contrib.auth.models import User
+from .models import Item
 
 def index(request):
     try:
@@ -45,21 +46,23 @@ def reg(request):
         user.save()
         login(request, user)
         return JsonResponse({'status' : 'success'})
-    return render(request, 'reg.html')
-    
+    return render(request, 'reg.html')    
 
 def logout_view(request):
     logout(request)
     return redirect('index') #перенаправление
 
-    
+def item_template(request, id):
+    item = Item.objects.get(id = id) 
+    context = {
+        'item_title' : item.item_title, 
+        'photo' : item.image     
+    }
+    return render(request, 'item_template.html', context)
 
 
-
-        # user = authenticate(request, email=email, password=password)
-        # if user is not None:
-        #     login(request, user)
-        #     print(f'login: {username}, password: {password}')
+        # user = auth5nticate(request, email=email, password=password)
+        # if user is n69gin: {username}, password: {password}')
         #     return JsonResponse({'status': 'success', 'message': 'OK'})
         # else:
         #     return JsonResponse({'status': 'error', 'message': 'Неверный логин и пароль'})

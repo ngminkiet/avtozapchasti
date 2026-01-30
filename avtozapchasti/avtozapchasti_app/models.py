@@ -16,7 +16,11 @@ def item_discription_path():
 class Item(models.Model):
     item_title = models.CharField(max_length=50) # заголовок товары
     price = models.IntegerField() # цена
-    description = models.FilePathField(path=item_discription_path) #описание
+    description = models.TextField() # описание
+    photo = models.ImageField() # фото товара
     material = models.CharField(max_length=20) # материал
     spare_parts_type = models.CharField(max_length=20)# тип запчасти
     spare_parts_color = models.CharField(max_length=20)# цвет запчасти
+
+    def __str__(self):
+        return self.item_title
