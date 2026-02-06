@@ -1,0 +1,24 @@
+#item-photo {
+    width: 400px;
+    height: 400px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#item {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#item-title {
+    font-size: 3rem;
+}
+
+#item-price {
+    font-size: 2rem;
+}
+
+#item-description {
+    color: #333333;
+    font-style: italic;
+}
