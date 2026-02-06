@@ -55,8 +55,7 @@ def logout_view(request):
 def item_template(request, id):
     item = Item.objects.get(id = id) 
     context = {
-        'item_title' : item.item_title, 
-        'photo' : item.image     
+        'item': item
     }
     return render(request, 'item_template.html', context)
 

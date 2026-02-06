@@ -23,4 +23,4 @@ class Item(models.Model):
     spare_parts_color = models.CharField(max_length=20)# цвет запчасти
 
     def __str__(self):
-        return self.item_title
+        return f'{self.id}. {self.item_title}'
