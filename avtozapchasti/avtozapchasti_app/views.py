@@ -59,6 +59,14 @@ def item_template(request, id):
     }
     return render(request, 'item_template.html', context)
 
+def items_list(request):
+    items_list = Item.objects.all()
+    context = {
+        'items_list' : items_list
+    }
+    return render(request, 'items_list.html', context)
+
+
 
         # user = auth5nticate(request, email=email, password=password)
         # if user is n69gin: {username}, password: {password}')

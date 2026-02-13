@@ -8,6 +8,7 @@ urlpatterns = [
     path('auf/', views.auf, name='auf'),
     path('reg/', views.reg, name='reg'),
     path('logout/', views.logout_view, name='logout'),
-    path('item/<int:id>', views.item_template, name='item')
+    path('item/<int:id>', views.item_template, name='item'),
+    path('items/', views.items_list, name='items_list')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
