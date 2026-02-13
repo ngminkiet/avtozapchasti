@@ -73,23 +73,17 @@
 </nav>
 
 
-<main class="container" id="item">
-    <ul>
-    {% for item in items_list %}
-        <li><a href="/item/{{ item.id }}">{{ item }}</a></li>
-    {% endfor %}
-    </ul>    
-</main>
+
 
 <div class="container">
                 <div class="row justify-content-center">
                 {% for item in items_list %}
                     <div class="col-3">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 15rem;">
                             <img src={{ item.photo.url }} class="card-img-top" alt={{ item.item_title }}>
                             <div class="card-body">
                                 <h5 class="card-title">{{ item.item_title }}</h5>
-                                <p class="card-text">S{{ item.description }}</p>
+                                <!-- <p class="card-text">S{{ item.description }}</p> -->
                                 <a href="/item/{{ item.id }}" class="card-button">Подробнее</a>
                             </div>
                         </div>
@@ -99,7 +93,7 @@
             </div>
 
 	<!-- Подвал -->
-	<footer>
+	<!-- <footer>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
