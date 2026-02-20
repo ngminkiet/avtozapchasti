@@ -74,9 +74,8 @@
 
 
 
-
-<div class="container">
-                <div class="row justify-content-center">
+            <div class="container" id="item">
+                <div class="row item-container">
                 {% for item in items_list %}
                     <div class="col-3">
                         <div class="card" style="width: 15rem;">
@@ -85,6 +84,7 @@
                                 <h5 class="card-title">{{ item.item_title }}</h5>
                                 <!-- <p class="card-text">S{{ item.description }}</p> -->
                                 <a href="/item/{{ item.id }}" class="card-button">Подробнее</a>
+                                <p>{{ item.item_subtitle }}</p>
                             </div>
                         </div>
                     </div>

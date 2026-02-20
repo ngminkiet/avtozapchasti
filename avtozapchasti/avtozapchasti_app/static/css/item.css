@@ -22,3 +22,14 @@
     color: #333333;
     font-style: italic;
 }
+
+.item-container {
+    border: solid;
+    border-color: black;
+    border-radius: 3px;
+}
+
+.item-container:hover {
+    background-color: white;
+    cursor: pointer;
+}

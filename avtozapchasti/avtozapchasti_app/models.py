@@ -14,13 +14,23 @@ def item_discription_path():
     return os.path.join(settings.LOCAL_FILE_DIR, "item_discription")
 
 class Item(models.Model):
+
+    spare_parts_type = (
+        ('колеса', 'колеса'),
+        ('кузов', 'кузов'),
+        ('двигатель', 'двигатель'),
+        ('машина', 'машина')
+    )
+
+
     item_title = models.CharField(max_length=50) # заголовок товары
     price = models.IntegerField() # цена
     description = models.TextField() # описание
     photo = models.ImageField() # фото товара
     material = models.CharField(max_length=20) # материал
-    spare_parts_type = models.CharField(max_length=20)# тип запчасти
+    spare_parts_type = models.CharField(max_length=20, choices=spare_parts_type)# тип запчасти
     spare_parts_color = models.CharField(max_length=20)# цвет запчасти
+
 
     def __str__(self):
         return f'{self.id}. {self.item_title}'
