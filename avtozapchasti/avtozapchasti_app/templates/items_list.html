@@ -72,25 +72,23 @@
   </div>
 </nav>
 
-
-
-            <div class="container" id="item">
-                <div class="row item-container">
-                {% for item in items_list %}
-                    <div class="col-3">
-                        <div class="card" style="width: 15rem;">
-                            <img src={{ item.photo.url }} class="card-img-top" alt={{ item.item_title }}>
-                            <div class="card-body">
-                                <h5 class="card-title">{{ item.item_title }}</h5>
-                                <!-- <p class="card-text">S{{ item.description }}</p> -->
-                                <a href="/item/{{ item.id }}" class="card-button">Подробнее</a>
-                                <p>{{ item.item_subtitle }}</p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-                </div>
-            </div>
+  <div class="container" id="item">
+      <div class="row item-container">
+        {% for item in items_list %}
+        <div class="col-3">
+              <div class="card my-card" style="width: 15rem;"  onclick="window.location='/item/{{ item.id }}';">
+                  <img src={{ item.photo.url }} class="card-img-top my-card-img" alt={{ item.item_title }}>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ item.item_title }}</h5>
+                      <!-- <p class="card-text">S{{ item.description }}</p> -->
+                      <a href="/item/{{ item.id }}" class="card-button">Подробнее</a>
+                      <p>{{ item.item_subtitle }}</p>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
 
 	<!-- Подвал -->
 	<!-- <footer>
