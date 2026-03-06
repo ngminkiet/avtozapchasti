@@ -1,15 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block title %}Запчасти{% endblock %}
-
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/item.css' %}">
-
-{% endblock %}
-
-<body>
-     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <i style="color: rgb(255, 255, 255)"class="fa-solid fa-car fa-2xl"></i>
     <a class="navbar-brand" href="#" >Avtozapchasti</a>
@@ -67,23 +56,3 @@
     </div>
   </div>
 </nav>
-
-<main class="container" id="item">
-            <div class="row justify-content-center">
-                <div class="col-5">
-                    <img id="item-photo" src={{ item.photo.url }}>
-                </div>
-                <div class="col-6" id="item">
-                    <p id="item-title">{{ item.item_title }}</p>
-                    <p id="item-price">{{ item.price }} ₽</p>
-                    <p id="item-description">{{ item.description }}</p>
-                    <p id="item-material">Материал: {{ item.material }}</p>
-                    <p id="item-type">Тип товара: {{ item.clothing_type }}</p>
-                    <p id="item-color">Цвет: {{ item.clothing_color }}</p>
-                </div>
-            </div>
-        </main>
-
-
-</body>
-</html>
