@@ -22,7 +22,6 @@ class Item(models.Model):
         ('машина', 'машина')
     )
 
-
     item_title = models.CharField(max_length=50) # заголовок товары
     price = models.IntegerField() # цена
     description = models.TextField() # описание
