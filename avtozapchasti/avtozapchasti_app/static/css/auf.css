@@ -1,7 +1,11 @@
 .auf {
-    margin-bottom: rem;
+    margin-bottom: 1rem;
     height: 70vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    width: 30%;
+    margin-top: 2rem;
+
+    
 }
