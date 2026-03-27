@@ -75,7 +75,7 @@ def account(request):
         'last_name' : request.user.last_name,
         'email' : request.user.email,
     }
-    return render(request, 'account.html', context, status=418)
+    return render(request, 'account.html', context)
 
         # user = auth5nticate(request, email=email, password=password)
         # if user is n69gin: {username}, password: {password}')

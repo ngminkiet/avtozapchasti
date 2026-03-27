@@ -107,7 +107,8 @@
         </a>
         <ul class="dropdown-menu">
         <li>
-        <a class="dropdown-item" href={% url 'logout' %}>Выйти</a></li>
+        <a class="dropdown-item" id="account-link" href="{% url 'account' %}">Профиль</a>
+        <a class="dropdown-item" id="logout-link" href={% url 'logout' %}>Выйти</a></li>
         </ul>
         </li>
         {% else %}
