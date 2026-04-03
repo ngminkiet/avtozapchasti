@@ -59,10 +59,13 @@ def item_template(request, id):
     }
     return render(request, 'item_template.html', context)
 
-def items_list(request):
-    items_list = Item.objects.all()
+def items_list(request, spare_parts_type):
+    if spare_parts_type == 'all':
+        items = Item.objects.all()
+    else:
+        items = Item.objects.filter(spare_parts_type = spare_parts_type)
     context = {
-        'items_list' : items_list
+        'items_list' : items,
     }
     return render(request, 'items_list.html', context)
 

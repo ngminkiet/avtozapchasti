@@ -15,11 +15,10 @@ def item_discription_path():
 
 class Item(models.Model):
 
-    spare_parts_type = (
-        ('колеса', 'колеса'),
-        ('кузов', 'кузов'),
-        ('двигатель', 'двигатель'),
-        ('машина', 'машина')
+    spare_parts_types = (
+        ('bodywork', 'кузов'),
+        ('engine', 'двигатель'),
+        ('salon', 'салон')
     )
 
     item_title = models.CharField(max_length=50) # заголовок товары
@@ -27,7 +26,7 @@ class Item(models.Model):
     description = models.TextField() # описание
     photo = models.ImageField() # фото товара
     material = models.CharField(max_length=20) # материал
-    spare_parts_type = models.CharField(max_length=20, choices=spare_parts_type)# тип запчасти
+    spare_parts_type = models.CharField(max_length=20, choices=spare_parts_types)# тип запчасти
     spare_parts_color = models.CharField(max_length=20)# цвет запчасти
 
 
