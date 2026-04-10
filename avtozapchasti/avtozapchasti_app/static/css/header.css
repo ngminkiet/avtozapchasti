@@ -1,6 +1,6 @@
 header {
     background: linear-gradient(45deg, gray 30%, purple);
-    height: 90vh;
+    height: 95vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -44,7 +44,7 @@ header {
 
 
 .nk-interesting {
-    background-color: antiquewhite;
+    background-color: peachpuff;
 }
 
 .nk-interesting-title {

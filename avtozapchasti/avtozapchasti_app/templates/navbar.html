@@ -9,38 +9,38 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="main">Главная</a>
+          <a class="nav-link active" aria-current="page" href="/">Главная</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="auto parts" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Автозапчасти
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href={% url 'catalog' 'engine'%}>Двигатель</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'engine'%}>Двигатель</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'fasteners'%}>Крепёж</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'fasteners'%}>Крепёж</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'bodywork'%}>Кузов</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'bodywork'%}>Кузов</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'heating and ventilation'%}>Отопление и вентиляция</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'heating_and_ventilation'%}>Отопление и вентиляция</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'steering control'%}>Рулевое управление</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'steering_control'%}>Рулевое управление</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'salon'%}>Салон</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'salon'%}>Салон</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'cooling system' %}>Система охлождения</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'cooling_system' %}>Система охлождения</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'fuel system' %}>Топливная Система</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'fuel_system' %}>Топливная Система</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'brake system' %}>Тормозная система</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'brake_system' %}>Тормозная система</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'transmission' %}>Трансмиссия</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'transmission' %}>Трансмиссия</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'filters' %}>Фильтры</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'filters' %}>Фильтры</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'undercarriag' %}>Ходовая часть</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'undercarriag' %}>Ходовая часть</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'electrics' %}>Электрика</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'electrics' %}>Электрика</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -48,9 +48,9 @@
             Шины
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href={% url 'catalog' 'summer tires' %}>Летние шины</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'summer_tires' %}>Летние шины</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'winter tires' %}>Зимние шины</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'winter_tires' %}>Зимние шины</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -58,11 +58,11 @@
             Диски
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href={% url 'catalog' 'alloy discs' %}>Литые диски</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'alloy_discs' %}>Литые диски</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'tamped discs' %}>Штампованные диски</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'tamped_discs' %}>Штампованные диски</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'forged discs' %}>Кованые диски</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'forged_discs' %}>Кованые диски</a></li>
           </ul>
         </li>
                 <li class="nav-item dropdown">
@@ -70,13 +70,13 @@
             АКБ
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href={% url 'catalog' 'passenger car batteries' %}>Легковые аккумуляторы</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'passenger_car_batteries' %}>Легковые аккумуляторы</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'cargo batteries' %}>Грузовые аккумуляторы</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'cargo_batteries' %}>Грузовые аккумуляторы</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'bike batteries' %}>Мотоаккумуляторы</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'bike_batteries' %}>Мотоаккумуляторы</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href={% url 'catalog' 'cigarette lighter wires' %}>Провода прикуривания</a></li>
+            <li><a class="dropdown-item" href={% url 'items_list' 'cigarette_lighter_wires' %}>Провода прикуривания</a></li>
           </ul>
         </li>
           <li class="nav-item dropdown">
@@ -84,15 +84,15 @@
               Жидкости
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href={% url 'catalog' 'engine oils' %}>Моторные масла</a></li>
+              <li><a class="dropdown-item" href={% url 'items_list' 'engine_oils' %}>Моторные масла</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href={% url 'catalog' 'brake fluid' %}>Тормозная Жидкость</a></li>
+              <li><a class="dropdown-item" href={% url 'items_list' 'brake_fluid' %}>Тормозная Жидкость</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href={% url 'catalog' 'antifreeze' %}>Антифриз</a></li>
+              <li><a class="dropdown-item" href={% url 'items_list' 'antifreeze' %}>Антифриз</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href={% url 'catalog' 'transmission oil' %}>Трансмиссионноя масло</a></li>
+              <li><a class="dropdown-item" href={% url 'items_list' 'transmission_oil' %}>Трансмиссионноя масло</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href={% url 'catalog' 'distilled water' %}>Дистиллированная вода</a></li>
+              <li><a class="dropdown-item" href={% url 'items_list' 'distilled_water' %}>Дистиллированная вода</a></li>
             </ul>
           </li>
         </li>

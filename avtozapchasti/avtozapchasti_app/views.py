@@ -60,14 +60,27 @@ def item_template(request, id):
     return render(request, 'item_template.html', context)
 
 def items_list(request, spare_parts_type):
+    spare_parts_name = ''
+
     if spare_parts_type == 'all':
         items = Item.objects.all()
+        spare_parts_name ='Всё'
     else:
         items = Item.objects.filter(spare_parts_type = spare_parts_type)
+
+        spare_parts_types = Item.spare_parts_types
+
+        for ft in spare_parts_types:
+            if ft[0] == spare_parts_type:
+                spare_parts_name = ft[1]
+                break
+
     context = {
         'items_list' : items,
+        'spare_parts_type' : spare_parts_name
     }
     return render(request, 'items_list.html', context)
+
 
 def account(request):
 
