@@ -1,0 +1,53 @@
+.item-card {
+    /* width: 18rem; */
+}
+
+#item {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.items_list-title-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+#item-img {
+    width: 450px;
+    height: 160px;
+}
+
+#item-title {
+    font-size: 2.3rem;
+}
+
+#item-price {
+    font-size: 1.5rem;
+    color: gray;
+}
+
+#item-description {
+    color: gray;
+}
+
+.item-card:hover {
+    cursor: pointer;
+}
+
+.item-title:hover {
+    color: #919092;
+}
+
+.item-img {
+    height: 5.5rem;
+}
+
+@media screen and (max-width: 600px) {
+    .item-col {
+        width: 100%;
+    }    
+}

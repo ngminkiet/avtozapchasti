@@ -1,11 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Запчасти{% endblock %}
+{% block title %}{{ item.template }}Запчасти{% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/item.css' %}">
+  <link rel="stylesheet" href={% static 'css/header.css' %}>
+  <link rel="stylesheet" href={% static 'css/item.css' %}>
+{% endblock %}
 
+{% block content %}
+    <div class="container" id="item">
+        <div class="row justify-content-end">
+            <div class="col-5">
+                <img src={{ item.image.url }} alt={{item.title }} id="item.jpg">
+            </div>
+            <div class="col-6">
+                <p id="item-title">{{ item.title }}</p>
+                <p id="item-price">{{ item.price }} ₽</p>
+                <p id="item-description">{{ item.description }}</p>
+                <p id="item-quantity">Осталось {{ item.quantity }} шт.</p>
+                <p id="item-expirydate">Срок годности: {{ item.expiry_date }}</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 <body>

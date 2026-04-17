@@ -1,23 +1,37 @@
 header {
     background: linear-gradient(45deg, gray 30%, purple);
-    height: 95vh;
+    background-image: url('../img/item.jpg');
+    height: 30rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 .nk-header-title {
-    font-size: 1.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 .nk-text-header {
     font-size: 1.5rem;
     font-weight: 600;
+    color: white;
 }
 
+.nk-header-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.60);
+    border-radius: 15px;
+    width: 90%;
+}
 
 .roboto-italic {
   font-family: "Roboto", sans-serif;
@@ -33,6 +47,13 @@ header {
     height: 100%;
     min-width: 100%;
     background: rgba(0, 0, 0, 0.50);
+}
+
+.my-class {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
 /* Мобильная версия */
