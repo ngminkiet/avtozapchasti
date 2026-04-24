@@ -11,5 +11,6 @@ urlpatterns = [
     path('item/<int:id>', views.item_template, name='item'),
     path('items/<str:spare_parts_type>', views.items_list, name='items_list'),
     path('account/', views.account, name='account'),
+    path('email/', views.email, name='email')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -18,6 +18,7 @@ class Item(models.Model):
     spare_parts_types = (
         ('bodywork', 'кузов'),
         ('fasteners', 'крепёж'),
+        ('pendant', 'подвеска'),
         ('heating_and_ventilation', 'отопление и вентиляция'),
         ('steering_control', 'рулевое управление'),
         ('engine', 'двигатель'),

@@ -115,21 +115,31 @@
     </section>
 
 
-<section class="feedback form-control btn btn-dark">
-		<div class="container">
-			<div class="col-sm-12 d-flex justify-content-center ">
-				<div class="title">
-					<h2 class="title-main">Форма обратной связи</h2>
-					<p class="title-text">Оставьте свой адрес почты и мы с вами свяжемся</p>
-					<div class="feedback-form">
-						<input type="email" class="form-control" name="email" id="email" placeholder="Введите адрес почты">
-						<button id="submit-button" class="form-control btn btn-dark">Отправить</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <section class="feedback form-control btn btn-dark">
+            <div class="container">
+                <div class="col-sm-12 d-flex justify-content-center">
+                    <div class="title">
+                        <h2 class="title-main">Форма обратной связи</h2>
+                        <p class="title-text">Оставьте свой адрес почты и мы с вами свяжемся</p>
+                        <div class="feedback-form">
+                            {% csrf_token %}
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Введите адрес почты">
+                            <input type="button" id="submit-button" class="form-control btn btn-dark" value="Отправить">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
  
     {% endblock %}
 
-        
+    {% block js %}
+        <script type="text/javascript">
+
+        </script>
+
+        <script type="text/javascript" src={% static 'js/email.js' %}></script>
+    {% endblock %}
+
+    

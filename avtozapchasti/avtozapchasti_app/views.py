@@ -1,8 +1,13 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
-from django.http import JsonResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import login, logout, authenticate
+from django.http import JsonResponse, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from .models import Item
+from django.core.mail import send_mail
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+from django.conf import settings
 
 def index(request):
     try:
@@ -92,6 +97,27 @@ def account(request):
         'email' : request.user.email,
     }
     return render(request, 'account.html', context)
+
+def email(request):
+    if request.method == 'POST' and request.POST.get('email'):
+        
+        try:
+            email = request.POST.get('email')
+            validate_email(email)
+            print('Получилось взять имейл: ', email)
+        except ValidationError:
+            return JsonResponse({'status': 'error', 'message' : 'Неправильно ввёден адрес почты'}, status=400)
+
+        # send_mail(
+        #     "Проверка из Django",
+        #     "Привет из Django!",
+        #     'edsuyargulov@yandex.ru',
+        #     [str(email)],
+        #     fail_silently=False,return JsonResponse({'status': 'success', 'message' : 'Отправлено'})
+        # )
+
+        
+    return JsonResponse({'status' : 'error', 'message' : 'Метод не разрешён. Только POST.'}, status=405)
 
         # user = auth5nticate(request, email=email, password=password)
         # if user is n69gin: {username}, password: {password}')
