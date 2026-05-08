@@ -1,17 +1,24 @@
 import os
 from django.db import models
+from django.contrib.auth.models import User
 from django.conf import settings
+from transliterate import translit
+from django.utils import timezone
+from datetime import timedelta
+import secrets
 
-#CharField - текстовое поле
-#IntegerField - целочисленное поле
-#FloatField - дробное поле
-#DateField - поле даты
+def generate_good_token():
+    return secrets.token_hex(3)
 
 def images_path():
     return os.path.join(settings.LOCAL_FILE_DIR, "images")
 
 def item_discription_path():
     return os.path.join(settings.LOCAL_FILE_DIR, "item_discription")
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    birthdate = models.DateField(null=True, blank=True)
 
 class Item(models.Model):
 
@@ -46,6 +53,18 @@ class Item(models.Model):
         ('distilled_water', 'дистиллированная вода')
     )
 
+    def user_directory_path(instance, filename):
+        title = str(translit(value = instance.title, language_code = 'ru', reversed = True))
+        return f'goods/{instance.good_token}_{title}/{filename}'
+
+        item_token = models.CharField(
+        max_length = 6,
+        unique = True,
+        default = generate_good_token,
+        editable = False
+    )
+    
+
     item_title = models.CharField(max_length=50) # заголовок товары
     price = models.IntegerField() # цена
     description = models.TextField() # описание
@@ -57,3 +76,12 @@ class Item(models.Model):
 
     def __str__(self):
         return f'{self.id}. {self.item_title}'
+    
+    
+class EmailCode(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    code = models.CharField(max_length=6)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def is_expired(self):
+        return timezone.now() > self.created_at + timedelta(minutes=30)
