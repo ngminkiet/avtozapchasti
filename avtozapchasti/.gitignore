@@ -1,6 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-avtozapchasti/avtozapchasti/personal_info.py
+personal_info.py
 *.py[codz]
 *$py.class
 
