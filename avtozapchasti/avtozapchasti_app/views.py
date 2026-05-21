@@ -134,7 +134,7 @@ def items_list(request, spare_parts_type):
     if request.user.is_authenticated:
         context['username'] = request.user.username
 
-    return render(request, 'catalog.html', context)
+    return render(request, 'items_list.html', context)
 
 def good_template(request, id):
     try:
