@@ -85,3 +85,9 @@ class EmailCode(models.Model):
 
     def is_expired(self):
         return timezone.now() > self.created_at + timedelta(minutes=30)
+    
+class EmailDigest(models.Model):
+    email = models.EmailField()
+
+    def __str__(self):
+        return f'{self.email}'

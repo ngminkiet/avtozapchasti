@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Item, UserProfile, EmailCode
+from .models import Item, UserProfile, EmailDigest, EmailCode
 from django.core.mail import send_mail
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
@@ -163,14 +163,30 @@ def account(request):
     return render(request, 'account.html', context)
 
 def email(request):
-    if request.method == 'POST' and request.POST.get('email'):
-        
-        try:
-            email = request.POST.get('email')
-            validate_email(email)
-            print('Получилось взять имейл: ', email)
-        except ValidationError:
-            return JsonResponse({'status': 'error', 'message' : 'Неправильно ввёден адрес почты'}, status=400)
+    if request.method == 'POST':
+        if request.POST.get('email'):
+            try:
+                email = request.POST.get('email')
+                validate_email(email)
+            except ValidationError:
+                return JsonResponse({'status': 'error', 'message' : 'Неправильно ввёден адрес почты'}, status=400)
+
+            print('доходит ли email: ', email)
+            send_mail(
+                "Полезная рассылка",
+                "Вы будете получать полезную рассылку о товарах.",
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False,
+            )
+
+            email_digest = EmailDigest(email = email)
+            email_digest.save()
+
+            return JsonResponse({'status': 'success', 'message' : 'Отправлено'})
+    else:
+        return JsonResponse({'status' : 'error', 'message' : 'Метод не разрешён. Только POST.'}, status=405)
+    
 
 def confirm(request):
     if request.method == 'POST':

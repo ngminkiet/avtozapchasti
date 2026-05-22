@@ -12,6 +12,7 @@ urlpatterns = [
     path('items/<str:spare_parts_type>', views.items_list, name='items_list'),
     path('account/', views.account, name='account'),
     path('confirm/', views.confirm, name='confirm'),
+    path('email/', views.email, name='email')
     # path('cart/', views.cart_detail, name='cart_detail'),
     # path('cart/add/<int:item_id>', views.cart_add, name='cart_add'),
     # path('cart/remove/<int:item_id>/', views.cart_remove, name='cart_remove'),

@@ -129,15 +129,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
-MY_EMAIL_HOST_USER = ''
-MY_EMAIL_HOST_PASSWORD = ''
 if MY_EMAIL_HOST_USER and MY_EMAIL_HOST_PASSWORD:
     EMAIL_HOST_USER = MY_EMAIL_HOST_USER
     EMAIL_HOST_PASSWORD = MY_EMAIL_HOST_PASSWORD
