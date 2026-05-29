@@ -36,7 +36,7 @@
 
 .my-card {
     margin: 1rem;
-    height: 350px;
+    height: 375px;
     background-color: black;
     color: white;
 }
@@ -48,3 +48,5 @@
 .my-card-img {
     height: 200px;
 } 
+
+

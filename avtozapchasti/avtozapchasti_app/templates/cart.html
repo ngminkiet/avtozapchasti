@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Корзина – Автозапчасти{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container cart py-5">
+
+    <h1 class="mb-4">Корзина</h1>
+
+    {% if cart_items %}
+        <div class="row g-4">
+            <div class="col-lg-8">
+                {% for item in cart_items %}
+                    <div class="cart-item card mb-3">
+                        <div class="row g-0 align-items-center">
+
+                            <div class="col-md-3">
+                                <img src="{{ item.item.image.url }}"
+                                     class="img-fluid rounded-start cart-img"
+                                     alt="{{ item.item.title }}">
+                                </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ item.item.title }}</h5>
+                                    <p class="card-text mb-1">Цена: {{ item.item.price }} ₽</p>
+                                    <p class="card-text fw-bold">Итого: {{ item.total_price }} ₽</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 text-md-end p-3">
+                                <a href="{% url 'cart_remove' item.item.id %}"
+                                   class="btn btn-outline-danger btn-sm">
+                                    Удалить
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card cart-summary">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Итого</h4>
+
+                        <p class="d-flex justify-content-between">
+                            <span>Товары:</span>
+                            <span>{{ cart_items|length }}</span>
+                        </p>
+
+                        <hr>
+
+                        <a href="#" class="btn btn-success w-100">
+                            Оформить заказ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="empty-cart text-center py-5">
+            <h3>Корзина пустая</h3>
+            <p class="text-muted">Добавьте товары, чтобы оформить заказ.</p>
+            <a href="{% url 'index' %}" class="btn btn-success">
+                Перейти к товарам
+            </a>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

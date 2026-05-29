@@ -4,29 +4,28 @@
 {% block title %}Запчасти{% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/item.css' %}">
-
+    <link rel="stylesheet" href={% static 'css/item.css' %}>
+    <link rel="stylesheet" href={% static 'css/header.css' %}>
 {% endblock %}
 
 {% block content %}
-<body>
-
-
   <div class="container" id="item">
     <div class="row">
         <div class="catalog-title-col">
               <h2 class="catalog-title">{{ spare_parts_type }}</h2>
           </div>
         </div>
+        
       <div class="row item-container">
         {% for item in items_list %}
         <div class="col-3">
-              <div class="card my-card" style="width: 15rem;"  onclick="window.location='/item/{{ item.id }}';">
+              <div class="card my-card" style="width: 15rem;"  onclick="window.location='/item/{{ item.id }}'">
                   <img src={{ item.photo.url }} class="card-img-top my-card-img" alt={{ item.item_title }}>
                   <div class="card-body">
                       <h5 class="card-title">{{ item.item_title }}</h5>
                       <!-- <p class="card-text">S{{ item.description }}</p> -->
                       <a href="/item/{{ item.id }}" class="card-button">Подробнее</a>
+                      <a href="/item/{{ item.id }}" class="btn btn-success">Купить</a>
                       <p>{{ item.item_subtitle }}</p>
                   </div>
               </div>
@@ -35,6 +34,11 @@
       </div>
   </div>
 {% endblock %}
+
+{% block js %}
+    <script src={% static 'js/img-change.js' %}></script>
+{% endblock %}
+
 	<!-- Подвал -->
 	<!-- <footer>
 		<div class="container">
@@ -44,9 +48,7 @@
 						Kiet
 						<br>
 						2026
-						<br>
-						<a href="#" target="_blank"><svg class="icon" id="telegram" viewBox="0 0 496 512"></svg></a>
-						<a href="#" target="_blank"><svg class="icon" id="vk" viewBox="0 0 496 512"></svg></a>				
+						<br>				
 					</div>
 				</div>
 			</div>

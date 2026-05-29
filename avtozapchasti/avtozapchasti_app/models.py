@@ -7,7 +7,7 @@ from django.utils import timezone
 from datetime import timedelta
 import secrets
 
-def generate_good_token():
+def generate_item_token():
     return secrets.token_hex(3)
 
 def images_path():
@@ -55,28 +55,29 @@ class Item(models.Model):
 
     def user_directory_path(instance, filename):
         title = str(translit(value = instance.title, language_code = 'ru', reversed = True))
-        return f'goods/{instance.good_token}_{title}/{filename}'
+        return f'items/{instance.item_token}_{title}/{filename}'
 
-        item_token = models.CharField(
+    item_token = models.CharField(
         max_length = 6,
         unique = True,
-        default = generate_good_token,
+        default = generate_item_token,
         editable = False
     )
     
 
-    item_title = models.CharField(max_length=50) # заголовок товары
+    item_title = models.CharField(max_length=100) # заголовок товары
     price = models.IntegerField() # цена
     description = models.TextField() # описание
-    photo = models.ImageField() # фото товара
+    photo = models.ImageField(default='../media/items/none.png', upload_to=user_directory_path) # фото товара
+    photo2 = models.ImageField(default='../media/items/none.png', upload_to=user_directory_path)
+    quantity = models.DecimalField(max_digits=10, decimal_places=2) # Количество продукта
     material = models.CharField(max_length=20) # материал
     spare_parts_type = models.CharField(max_length=25, choices=spare_parts_types)# тип запчасти
     spare_parts_color = models.CharField(max_length=20)# цвет запчасти
 
 
     def __str__(self):
-        return f'{self.id}. {self.item_title}'
-    
+        return f'{self.email}'
     
 class EmailCode(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -90,4 +91,5 @@ class EmailDigest(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return f'{self.email}'
+        return f'{self.id}. {self.item_title}'
+    

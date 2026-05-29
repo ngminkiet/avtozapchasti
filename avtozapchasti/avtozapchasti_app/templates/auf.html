@@ -1,17 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Запчасти{% endblock %}
+{% block title %}Авторизация – Автоапчасти{% endblock %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/auf.css' %}">
 {% endblock %}
 
 
-{% block content %}
-<body>
-              
-
+{% block content %}       
 <div class="auf">
 
     {% csrf_token %}
@@ -35,10 +32,10 @@
         </li>
     </form>
 </div>
+{% endblock %}
 
 
-
-
-</body>
-</html>
+{% block js %}
+    <script type="text/javascript" src={% static 'js/auf.js' %}></script>
+    <script type="text/javascript" src={% static 'js/auf.js' %}></script>
 {% endblock %}

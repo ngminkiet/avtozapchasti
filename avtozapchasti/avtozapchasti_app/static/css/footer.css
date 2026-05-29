@@ -31,17 +31,3 @@ footer {
   align-items: center;
 }
 
-.icon {
-  width: 1.75rem;
-  height: 1.75rem;
-  fill: white;
-  margin: 0 0.8rem 0rem 0.8rem;
-}
-
-#telegram:hover {
-  fill: #229ED9;
-}
-
-#vk:hover {
-  fill: #0077FF;
-}

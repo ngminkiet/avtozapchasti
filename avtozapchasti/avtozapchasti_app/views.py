@@ -104,7 +104,8 @@ def logout_view(request):
     return redirect('index') #перенаправление
 
 def item_template(request, id):
-    item = Item.objects.get(id = id) 
+    item = Item.objects.get(id = id)
+    print('id item: ', id)
     context = {
         'item': item
     }
@@ -136,7 +137,7 @@ def items_list(request, spare_parts_type):
 
     return render(request, 'items_list.html', context)
 
-def good_template(request, id):
+def item_template(request, id):
     try:
         item = Item.objects.get(id = id) # конструктор класса
     except ObjectDoesNotExist:
@@ -211,6 +212,76 @@ def confirm(request):
                 return JsonResponse({'status': 'error', 'message': 'Неверный код'}, status=400)
 
     return render(request, 'confirm.html')
+
+def cart_add(request, item_id):
+    if request.user.is_authenticated:
+        item = get_object_or_404(Item, id=item_id)
+
+        qty = int(request.GET.get('qty', 1))
+
+        cart = request.session.get('cart', {})
+        item_id_str = str(item.id)
+
+        cart[item_id_str] = cart.get(item_id_str, 0) + qty
+
+        request.session['cart'] = cart
+        request.session.modified = True
+
+        return redirect('cart_detail')
+    else:
+        return redirect('auf')
+
+def cart_detail(request):
+    if request.user.is_authenticated:
+        cart = request.session.get('cart', {})
+
+        items = Item.objects.filter(id__in=cart.keys())
+
+        cart_items = []
+
+        for item in items:
+            quantity = cart[str(item.id)]
+            total_price = item.price * quantity
+
+            cart_items.append({
+                'item': item,
+                'quantity': quantity,
+                'total_price': total_price
+            })
+
+        context = {
+            'cart_items': cart_items,
+            'username' : request.user.username
+        }
+
+        return render(request, 'cart.html', context)
+    else:
+        return redirect('auf')
+
+def cart_remove(request, item_id):
+    if request.user.is_authenticated:
+        cart = request.session.get('cart', {})
+
+        item_id_str = str(item_id)
+
+        if item_id_str in cart:
+            del cart[item_id_str]
+
+        request.session['cart'] = cart
+        request.session.modified = True
+
+        return redirect('cart_detail')
+    else:
+        return redirect('auf')
+
+def cart_clear(request):
+    if request.user.is_authenticated:
+        request.session['cart'] = {}
+        request.session.modified = True
+
+        return redirect('cart_detail')
+    else:
+        return redirect('auf')
         # send_mail(
         #     "Проверка из Django",
         #     "Привет из Django!",
